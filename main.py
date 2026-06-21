@@ -1,12 +1,29 @@
 from robot import Robot
-import time
+import time, math
 
 robot = Robot()
 
-for i in range(4):
-    robot.set_motors(100, 100)
-    time.sleep(1)
-    robot.set_motors(0, 100)
-    time.sleep(0.5)
+# использование светодиодов
+for i in range(3, 9):
+    robot.led[i] = (100, 0, 255)
+for i in range(3):
+    robot.led[i] = (100, 0, 255)
+robot.led.write()
 
-robot.stop()
+# пищалка
+# robot.beep(1)
+
+# скорость моторов
+# robot.set_motors(0, 0)
+
+# датчик расстояния
+# for i in range(1000):
+    # print(robot.tof.read_range_single_millimeters())
+    # time.sleep(1)
+
+# датчик линии 
+# for i in range(1000):
+#     for i in range(4):
+#         print(robot.get_line(i), end='')
+#     print()
+#     time.sleep(1)
