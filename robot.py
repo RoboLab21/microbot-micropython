@@ -14,9 +14,9 @@ class Robot:
             
             # Датчики линии
             self.line_pins = [
+                Pin(38, Pin.IN),
                 Pin(39, Pin.IN),
                 Pin(40, Pin.IN),
-                Pin(38, Pin.IN),
                 Pin(41, Pin.IN)
             ]
 
