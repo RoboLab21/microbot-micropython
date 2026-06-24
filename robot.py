@@ -36,6 +36,7 @@ class Robot:
                 print("VL53L0X не найден или драйвер отсутствует:", e)
 
             self.led = NeoPixel(Pin(3), 9)
+            self.start_button = Pin(46, Pin.IN, Pin.PULL_UP)
             
         except Exception as e:
             print("Ошибка инициализации железа робота:", e)
@@ -66,6 +67,9 @@ class Robot:
             self.motor2_dir.value(0)
             self.motor2_pwm.duty(int(-internal_r * 10.23))
 
+    def get_start_button(self):
+        return self.start_button.value()
+    
     def stop(self):
         """Остановить робота"""
         self.set_motors(0, 0)
